@@ -17,7 +17,7 @@ function TodoList() {
 
     const [text, setText] = useState('');
 
-    function addTask(text) {
+    const addTask = (text) => {
         const newTask = {
             id: Date.now(),
             text,
@@ -27,11 +27,11 @@ function TodoList() {
         setText('');
     }
 
-    function deleteTask(id) {
+    const deleteTask = (id) => {
         setTasks(tasks.filter(task => task.id !== id));
     }
 
-    function toggleCompleted(id) {
+    const toggleCompleted = (id) => {
         setTasks(tasks.map(task => {
             if (task.id === id) {
                 return {...task, completed: !task.completed };
