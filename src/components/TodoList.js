@@ -34,23 +34,35 @@ function TodoList() {
     const toggleCompleted = (id) => {
         setTasks(tasks.map(task => {
             if (task.id === id) {
-                return {...task, completed: !task.completed };
+                return { ...task, completed: !task.completed };
             } else {
                 return task;
             }
         }));
     };
 
+    //localStorage getItem
+    useEffect(() => {
+        const storedValue = JSON.parse(localStorage.getItem('tasks'));
+
+        if (storedValue.length > 0) {
+            setTasks(storedValue);
+        }
+    }, []);
+
+    //localStorage setItem && randomPlaceholder logic
     useEffect(() => {
         const randomPlaceholder = () => {
             const items = ["Walk the dog...", "Do homework...", "Make dinner...", "Have a beer...", "Change my socks..."];
-    
+
             const randomIndex = Math.floor(Math.random() * items.length);
             setPlaceholder(items[randomIndex]);
         };
 
         randomPlaceholder();
-    }, []);
+
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
 
     return (
         <div className="todo-list">
