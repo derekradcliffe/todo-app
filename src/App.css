@@ -33,18 +33,21 @@
 }
 
 .todo-item .delete {
-  padding: 0.1rem 1rem;
+  padding: 0.3rem 0.66rem;
   height: fit-content;
   margin-left: 1rem;
   background-color: #a13038;
   border: none;
   border-radius: 8px;
   color: #ffffff;
+  box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.25);
+  font-weight: bold;
 }
 
 .todo-item .delete:hover {
-  opacity: 0.5;
   cursor: pointer;
+  background-color: #ffffff;
+  color: #a13038;
 }
 
 .todo-item p {
@@ -61,6 +64,12 @@
   border-radius: 8px;
 }
 
+@media (max-width: 768px) {
+  .input-field {
+    width: 90%;
+  }
+}
+
 .add-task {
   width: 10%;
   padding: 0.5rem 0;
@@ -69,13 +78,32 @@
   color: #ffffff;
   margin-top: 1rem;
   border: none;
+  box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 768px) {
+  .add-task {
+    width: 70%;
+    padding: 1rem 0;
+    font-size: 1rem;
+  }
 }
 
 .add-task:hover {
-  opacity: 0.5;
+  background-color: #ffffff;
+  color: royalblue;
   cursor: pointer;
 }
 
 .completed + p {
   text-decoration: line-through;
+}
+
+.error p {
+  color: #f59f9f;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.2);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  font-weight: bold;
 }
