@@ -42,13 +42,13 @@ function TodoList() {
     };
 
     //localStorage getItem
-    useEffect(() => {
-        const storedValue = JSON.parse(localStorage.getItem('tasks'));
+    // useEffect(() => {
+    //     const storedValue = JSON.parse(localStorage.getItem('tasks'));
 
-        if (storedValue.length === 0) return;
+    //     if (storedValue.length === 0) return;
         
-        setTasks(storedValue);
-    }, []);
+    //     setTasks(storedValue);
+    // }, []);
 
     //localStorage setItem && randomPlaceholder logic
     useEffect(() => {
