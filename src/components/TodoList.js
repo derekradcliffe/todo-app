@@ -45,9 +45,9 @@ function TodoList() {
     useEffect(() => {
         const storedValue = JSON.parse(localStorage.getItem('tasks'));
 
-        if (storedValue.length > 0) {
-            setTasks(storedValue);
-        }
+        if (storedValue.length === 0) return;
+        
+        setTasks(storedValue);
     }, []);
 
     //localStorage setItem && randomPlaceholder logic
