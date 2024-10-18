@@ -65,9 +65,14 @@ function TodoList() {
             ))}
             <input
                 value={text}
-                onChange={e => setText(e.target.value)}
+                onChange={event => setText(event.target.value)}
                 className='input-field'
                 placeholder={placeholder}
+                onKeyDown={(event) => {
+                    if (event.key === "Enter")
+                        addTask(text);
+                    }
+                }
             />
             <button className='add-task' onClick={() => addTask(text)}>Add</button>
 
